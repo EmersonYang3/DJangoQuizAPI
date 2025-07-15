@@ -1,1 +1,1 @@
-# DJangoQuizAPI
+# Mango_Juice
