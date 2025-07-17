@@ -5,7 +5,7 @@ class Quiz(models.Model):
     description = models.CharField(max_length=500)
     subject_tags = models.JSONField(default=list)
     difficulty = models.IntegerField(default=1)
-    imageUrl = models.URLField(default="https://i.sstatic.net/y9DpT.jpg")
+    imageUrl = models.URLField(default="https://thumbs.dreamstime.com/b/pondering-emoticon-single-finger-thumb-resting-chin-thinking-wondering-ponder-emoticon-103989079.jpg")
 
     def __str__(self):
         return self.title
@@ -16,7 +16,7 @@ class Question(models.Model):
     text = models.TextField(max_length=250)
     subject_tags = models.JSONField(default=list)
     difficulty = models.IntegerField(default=1)
-    imageUrl = models.URLField(default="https://i.sstatic.net/y9DpT.jpg")
+    imageUrl = models.URLField(default="https://thumbs.dreamstime.com/b/pondering-emoticon-single-finger-thumb-resting-chin-thinking-wondering-ponder-emoticon-103989079.jpg")
 
     def __str__(self):
         return self.text
