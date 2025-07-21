@@ -16,6 +16,12 @@ class QuizzesView(APIView):
         quizzes = Quiz.objects.all()
         serializer = QuizSerializer(quizzes, many=True, context={'request': request})
         return Response(serializer.data)
+    def post(self, request):
+        serializer = QuizSerializer(request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors)
 
 class QuestionView(APIView):
     def get(self, request, question_id):
@@ -29,6 +35,12 @@ class QuestionsView(APIView):
         serializer = QuestionSerializer(questions, many=True, context={'request': request})
 
         return Response(serializer.data)
+    def post(self, request):
+        serializer = QuestionSerializer(request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors)
     
 class ChoiceView(APIView):
     def get(self, request, choice_id):
@@ -43,3 +55,9 @@ class ChoicesView(APIView):
         serializer = ChoiceSerializer(choices, many=True, context={'request': request})
 
         return Response(serializer.data)
+    def post(self, request):
+        serializer = ChoiceSerializer(request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors)
